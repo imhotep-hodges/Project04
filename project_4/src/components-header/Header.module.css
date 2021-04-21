@@ -1,0 +1,37 @@
+
+header {
+    width: 100%;
+    padding: 10px;
+    background-color:rgb(204, 195, 195);
+    color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    background-color: rgb(204, 195, 195);
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    background-color: rgb(204, 195, 195);
+}
+
+.user {
+    width: 32.5px;
+    height: 32.5px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: flex;
+    
+}
