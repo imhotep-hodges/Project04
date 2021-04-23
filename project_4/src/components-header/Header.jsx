@@ -4,13 +4,13 @@ import minion1_tpt from '/Users/larryh1981/Documents/Projects/Project04/project_
 
 const Header = () => {
     return <header>
-    <div className='logoContainer'>
+    <div className= {styles.logoContainer} >
         <img src={minion1_tpt} alt='minionlogo' className='logo' height='40px' width='40px' />
         <span> MINION </span>
     </div>
     
-    <div className='userContainer'>
-        <div className='user'> User </div>
+    <div className= {styles.userContainer} >
+        <div className= {styles.user} > User </div>
 
     </div>
     

@@ -1,0 +1,15 @@
+.subheader {
+    color: black;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.subheaderContainer {
+    background-color: rgb(204, 195, 195);
+    color: black;
+    padding-top: 50px;
+}
+
+h1 {
+    color: black;
+}
