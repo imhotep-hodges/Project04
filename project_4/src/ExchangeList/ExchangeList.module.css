@@ -1,23 +1,26 @@
 .container {
-    padding: 8px;
+    padding: 80px;
     color: crimson;
-    width: 300px;
+    width: auto;
 }
 
 .header {
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .exchangeList {
     list-style-type: none;
-    margin: 0;
+    margin: auto;
     padding: 0;
+    float: left;
+    
 }
 
 .listitem {
     display: flex;
     margin: 10px 0;
     position: relative;
+    
 }
 
 .name {

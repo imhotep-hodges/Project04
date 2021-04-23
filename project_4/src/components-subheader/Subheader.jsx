@@ -5,7 +5,7 @@ const Subheader = (props) => {
    return <div className = {styles.subheader} >
                     <div className = {styles.subheaderContainer} >
                         {props.children}
-                        <h1>HELLO</h1>
+                        <h1>TEST</h1>
                     </div>
                 
              </div>
