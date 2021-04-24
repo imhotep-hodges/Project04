@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {useState} from 'react';
+import Stock from './Stock';
 import data from '/Users/larryh1981/Documents/Projects/Project04/project_4/src/data';
 
 
@@ -33,6 +34,8 @@ function App() {
               
                     <button className="rounded">Buy</button>
                     <button className="rounded">Sell</button>
+                    <br></br>
+                    <Stock></Stock>
 
 
 
