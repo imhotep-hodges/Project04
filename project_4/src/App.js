@@ -1,10 +1,29 @@
 import React from 'react';
 import './App.css';
-import {useState} from 'react';
+import { useState } from 'react';
 import Stock from './Stock';
 
 
 function App() {
+
+
+  const [activeSearch, setActiveSearch] = useState();
+
+  const updateActiveSearch = (ev) => {
+    console.log(ev.currentTarget.value);
+    setActiveSearch(ev.currentTarget.value)
+  };
+
+  const searchStock = async () => {
+    console.log('was here')
+    let res = await fetch(`http://localhost:3000/api/v1/search/${activeSearch}`);
+    let json = await res.json();
+    console.log(json);
+
+  };
+
+
+
   return (
     <div className="App">
       
@@ -27,8 +46,12 @@ function App() {
           <div className="row my-3">
               <div className="col-md-8 col-sm-12 border border-light my-3 py-4">
                 
-                  <input type="search" id="gsearch" name="gsearch" className="rounded" placeholder="Search..." />
-                   <button type="submit" className="rounded"> Search </button>
+              <input value={activeSearch} onChange={updateActiveSearch} type="search" className={'rounded'}/>
+
+            {/*<p>the current value if the active search is: {activeSearch}</p>*/}
+
+            <button onClick={searchStock} className={'rounded bg-dark'}>Search</button>
+
                     <br></br>
               
                     <button className="rounded">Buy</button>
@@ -47,7 +70,7 @@ function App() {
                 <h6 className='text-left'>Portfolio</h6>
                 
 
-                
+                <home></home>
                 <table className="table table-bordered table-dark">
                   <thead>
                     <tr>
