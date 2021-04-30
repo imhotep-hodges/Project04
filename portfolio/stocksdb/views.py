@@ -1,22 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from .forms import TickerForm
-from .tiingo import get_meta_data, get_price_data
 
 
 def home(request):   
-   if request.method == 'POST':
-          form = TickerForm(request.POST)
-          if form.is_valid():
-                 ticker = request.POST['ticker']
-                 return HttpResponseRedirect(ticker)
-   else: 
-      form = TickerForm()
-   return render(request, 'home.html', {'form': form})
-    
-def ticker(request, tid):
-   context = {}
-   context['ticker'] = tid
-   context['meta'] = get_meta_data(tid)
-   context['price'] = get_price_data(tid)
-   return render(request, 'ticker.html', context)
+   import requests
+   import json
+
+      #pk_9f5df27dfc7140ebbaa3c11daac6a073
+   api_request = requests.get('https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_9f5df27dfc7140ebbaa3c11daac6a073')
+
+   try:
+      api = json.loads(api_request.content)
+   except Exception as e:
+      api = 'Error...'
+
+   return render(request, 'home.html', {'api': api})
+
+def aboutme(request):
+   return render(request, 'aboutme.html', {})

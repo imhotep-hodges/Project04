@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
- 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-        <title>App</title>
-    </head>
-   <body class='bg-dark text-white'>   
+{% extends 'base.html' %}
+{% block content %}
+      
 
         <h1> {{ ticker }} </h1>
         <h1>{{ meta.name }} ({{ ticker }})</h1>
@@ -18,5 +10,4 @@
         <p>Low: {{ price.low }} </p>
         <p>Close: {{ price.close }} </p>
 
-   </body>
-</html>
+{% endblock %}
