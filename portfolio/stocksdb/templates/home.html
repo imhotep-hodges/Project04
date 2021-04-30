@@ -20,28 +20,31 @@
           <div class="row my-3">
               <div class="col-md-8 col-sm-12 border border-light my-3 py-4">
                 
-                <form action='' method='post'>
+                <form action='{% url 'home' %}' class='form-inline my-2 my-lg-0' method='POST'>
                         {% csrf_token %}
-                        {{form}}
-                    <input type='submit' values='Submit'>
+                        
+                    <input class='form-control mr-sm02' type='search' placeholder='Enter Stock Symbol' name='ticker'>
+                    <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
                 </form>
-
-                    <br>
-              
-                    <button class="rounded">Buy</button>
-                    <button class="rounded">Sell</button>
-                    <br>
-
+                  <br/>
+                  {% if ticker %}
+                      {{ ticker }}
+                  {% endif %}
+                   <br/>
+              <div class='card text-body'>
                   {% if api %}
                       {% if api == "Error..." %}
                           There was a problem with your Ticker symbol. Try again...
                       {% else %}
-                          {% for key, value in api.items %}
-                              {{ key }}: {{ value }}<br/>
-                          {% endfor %} 
+                          <h1>{{ api.companyName }}</h1>
+                          <p>Price: ${{ api.latestPrice }}</p>
+                          <p>High: {{ api.week52High }}</p>
+                          
+
+                      
                       {% endif %}
                   {% endif %}
-
+                </div>
 
               
               
