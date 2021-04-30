@@ -31,12 +31,12 @@
                       {{ ticker }}
                   {% endif %}
                    <br/>
-              <div class='card text-body'>
+              <div class='card text-body mx-3'>
                   {% if api %}
                       {% if api == "Error..." %}
                           There was a problem with your Ticker symbol. Try again...
                       {% else %}
-                          <h1>{{ api.companyName }}</h1>
+                          <h3>{{ api.companyName }}</h3>
                           <p>Price: ${{ api.latestPrice }}</p>
                           <p>High: {{ api.week52High }}</p>
                           
