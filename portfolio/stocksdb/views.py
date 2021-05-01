@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Portfolio
+from .forms import StockForm
+from django.contrib import messages
 
 
 def home(request):   
    import requests
-   import json
+   import json  
 
    if request.method == 'POST':
       tickerSy = request.POST['ticker']
@@ -18,10 +21,18 @@ def home(request):
    else: 
       return render(request, 'home.html', {'tickerSy': "Enter a Ticker Symbol Above..."})
 
-   
 
 def aboutme(request):
    return render(request, 'aboutme.html', {})
 
 def addstock(request):
-   return render(request, 'addstock.html', {})
+   if request.method == 'POST':
+         form = StockForm(request.POST or None)
+         
+         if form.is_valid():
+            form.save() 
+            messages.success(request, ("Stock has been added"))
+            return redirect('addstock')
+   else: 
+      stock = Portfolio.objects.all()
+      return render(request, 'addstock.html', {'stock': stock})

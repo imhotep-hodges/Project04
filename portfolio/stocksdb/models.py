@@ -6,7 +6,7 @@ class Portfolio(models.Model):
     price = models.DecimalField(decimal_places=5, max_digits=10)
     buy_sell = models.BooleanField()
     
-    def _str_(self):
+    def __str__(self):
         return self.stock 
     
 

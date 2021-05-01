@@ -38,10 +38,7 @@
                       {% else %}
                           <h3>{{ api.companyName }}</h3>
                           <p>Price: ${{ api.latestPrice }}</p>
-                          <p>High: {{ api.week52High }}</p>
-                          
-
-                      
+                          <p>High: {{ api.week52High }}</p>                                           
                       {% endif %}
                   {% endif %}
                 </div>
@@ -54,7 +51,9 @@
               <div class="col-md-4 col-sm-12 border border-light my-3 py-4">
                 <h6 class='text-left'>Portfolio</h6>
                 
-
+                  {% for item in stock %}
+                    {{ item }}<br/>
+                  {% endfor %}
                 
                 <table class="table table-bordered table-dark">
                   <thead>
