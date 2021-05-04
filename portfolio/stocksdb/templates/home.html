@@ -51,9 +51,17 @@
               <div class="col-md-4 col-sm-12 border border-light my-3 py-4">
                 <h6 class='text-left'>Portfolio</h6>
                 
-                  {% for item in stock %}
-                    {{ item }}<br/>
-                  {% endfor %}
+                  <form action='{% url 'addstock' %}' class='form-inline my-2 my-lg-0' method='POST'>
+                    {% csrf_token %}                       
+                    <input class='form-control mr-sm02' type='search' placeholder='Enter Stock Symbol' name='stock'>
+                    <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
+                  </form>
+                        <br/>
+                  <p class='text-light'>
+                    
+                      {{ stocks }} <br/>
+                    
+                  </p>
                 
                 <table class="table table-bordered table-dark">
                   <thead>

@@ -4,16 +4,16 @@
 <h1>Add stock</h1>
 
 <form action='{% url 'addstock' %}' class='form-inline my-2 my-lg-0' method='POST'>
-    {% csrf_token %}
-                        
-    <input class='form-control mr-sm02' type='search' placeholder='Enter Stock Symbol' name='ticker'>
-    <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
+    {% csrf_token %}                       
+    <input class='form-control mr-sm02' type='search' placeholder='Add to your Portfolio' name='stock'>
+    <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Add</button>
 </form>
 <br/>
-
-{% for item in stock %}
-    {{ item }}<br/>
+<p class='text-light'>
+{% for item in stocks %}
+    {{ item }} - <a href='{% url 'delete' item.id %}'> Delete </a> <br/>
 {% endfor %}
+</p>
 
 
 
