@@ -9,11 +9,46 @@
     <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Add</button>
 </form>
 <br/>
+
 <p class='text-light'>
 {% for item in stocks %}
     {{ item }} - <a href='{% url 'delete' item.id %}'> Delete </a> <br/>
 {% endfor %}
 </p>
+
+<br/>
+
+<table class="table table-bordered table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">Stock Symbol</th>
+                      <th scope="col">PPS</th>
+                      <th scope="col">Market Cap</th>
+                      <th scope="col">52Wk Low</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            {% if stocks %}
+                  
+                  
+                    
+                {% for list_item in output %}
+                    <tr>
+                      <th scope="row">{{ list_item.symbol }}  </th>
+                        <td>${{ list_item.latestPrice }} </td>
+                        <td>${{ list_item.marketCap }} </td>
+                        <td> ${{ list_item.week52Low }} </td>
+                        <td> <a href='/'> Delete </a> </td>
+                    </tr>
+                {% endfor %}
+                    
+                    
+                    
+            {% endif %}  
+                  </tbody>
+</table>
+
 
 
 

@@ -10,6 +10,7 @@ def home(request):
    import json  
 
    if request.method == 'POST':
+      
       tickerSy = request.POST['ticker']
       
       api_request = requests.get('https://cloud.iexapis.com/stable/stock/' + tickerSy + '/quote?token=pk_9f5df27dfc7140ebbaa3c11daac6a073')
@@ -22,9 +23,20 @@ def home(request):
    else: 
       return render(request, 'home.html', {'tickerSy': "Enter a Ticker Symbol Above..."})
 
+def portfolios(request):
+      if request.method == 'POST':
+         form = StockForm(request.POST or None)
+         
+         if form.is_valid():
+            form.save() 
+            messages.success(request, ("Stock has been added"))
+            return redirect('home.html')
+      else: 
+         stocks = Portfolio.objects.all()
+         return render(request, 'home.html', {'stocks': stocks})
 
-def aboutme(request):
-   return render(request, 'aboutme.html', {})
+
+
 
 def addstock(request):
       if request.method == 'POST':
