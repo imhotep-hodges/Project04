@@ -4,8 +4,7 @@ from .models import Portfolio
 from .forms import StockForm
 from django.contrib import messages
 
-
-def home(request):   
+def home(request):
    import requests
    import json  
 
@@ -20,11 +19,13 @@ def home(request):
       except Exception as e:
          api = 'Error...'
       return render(request, 'home.html', {'api': api})
+      
    else: 
       return render(request, 'home.html', {'tickerSy': "Enter a Ticker Symbol Above..."})
 
-def portfolios(request):
-   import requests
+  
+
+def ticks(request):
    if request.method == 'POST':
       form = StockForm(request.POST or None)
          
@@ -35,7 +36,8 @@ def portfolios(request):
    else: 
       stocks = Portfolio.objects.all()
       return render(request, 'home.html', {'stocks': stocks})
-      
+   
+  
 
 def delete(request, stock_id):
       item = Portfolio.objects.get(pk=stock_id)
