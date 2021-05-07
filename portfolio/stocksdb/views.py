@@ -23,24 +23,21 @@ def home(request):
    else: 
       return render(request, 'home.html', {'tickerSy': "Enter a Ticker Symbol Above..."})
 
-  
-
-def ticks(request):
+def addstock(request):
    if request.method == 'POST':
       form = StockForm(request.POST or None)
          
       if form.is_valid():
          form.save() 
-         messages.success(request, ("Stock has been added"))
-         return redirect(home)
+         messages.success(request, ("Stock has been added!"))
+         return redirect(addstock)
    else: 
       stocks = Portfolio.objects.all()
-      return render(request, 'home.html', {'stocks': stocks})
-   
-  
+      return render(request, 'addstock.html', {'stocks': stocks})
+
 
 def delete(request, stock_id):
       item = Portfolio.objects.get(pk=stock_id)
       item.delete()
-      messages.success(request, ("Stock has been deleted"))
-      return redirect(home)
+      messages.success(request, ("Stock has been sold!"))
+      return redirect(addstock)

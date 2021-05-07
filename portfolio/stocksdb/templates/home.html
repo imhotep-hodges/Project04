@@ -18,12 +18,12 @@
           
 
           <div class="row my-3">
-              <div class="col-md-8 col-sm-12 border border-light my-3 py-4">
+              <div class="col-md-12 col-sm-12 border border-light my-3 py-4">
                 
                 <form action='{% url 'home' %}' class='form-inline my-2 my-lg-0' method='POST'>
                         {% csrf_token %}
                         
-                    <input class='form-control mr-sm02' type='search' placeholder='Enter Stock Symbol' name='ticker'>
+                    <input class='form-control mr-sm02' type='search' placeholder='Enter Ticker Symbol' name='ticker'>
                     <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
                 </form>
                   <br/>
@@ -41,62 +41,16 @@
                           <p>High: {{ api.week52High }}</p>                                           
                       {% endif %}
                   {% endif %}
-                </div>
+
+          
+              </div>
 
               
               
 
               </div>
 
-              <div class="col-md-4 col-sm-12 border border-light my-3 py-4">
-                <h6 class='text-left'>Portfolio</h6>
-                
-                  <form action='{% url 'home' %}' class='form-inline my-2 my-lg-0' method='POST'>
-                    {% csrf_token %}                       
-                    <input class='form-control mr-sm02' type='search' placeholder='Enter Stock Symbol' name='stock'>
-                    <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button>
-                  </form>
-                        <br/>
-                  <p class='text-light'>
-                    
-                      <br/>
-                    
-                  </p>
-                
-                <table class="table table-bordered table-dark">
-                  <thead>
-                    <tr>
-                      <th scope="col">Stock</th>
-                      <th scope="col">Quantity</th>
-                      <th scope="col">Value</th>
-                      <th scope="col">Buy/Sell</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                {% for item in stocks %}
-                    <tr>
-                      <th scope="row">{{ item }} - <a href='{% url 'delete' item.id %}'> Delete </a></th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                {% endfor %}
-
-                  </tbody>
-                </table>
-                <br></br>
-                <input placeholder='Quantity' class="rounded">
-                <select name="shares" id="shares" class="rounded">
-                <option value="Select">Select</option>
-                  <option value="Buy">Buy</option>
-                  <option value="Sell">Sell</option>
-                 
-                </select>
-
               
-              
-              </div>
               
           </div>
       </div>
