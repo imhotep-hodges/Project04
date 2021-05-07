@@ -17,7 +17,7 @@
                     <tr>
                       <th scope="col">Stock</th>
                       <th scope="col">Quantity</th>
-                      <th scope="col">Value</th>
+                      <th scope="col">Price</th>
                       <th scope="col">Sell</th>
                     </tr>
                   </thead>
@@ -26,8 +26,8 @@
                 {% for item in stocks %}
                     <tr>
                       <th scope="row">{{ item }} </th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.price }}</td>
                         <td><a href='{% url 'delete' item.id %}'> Sell </a></td>
                     </tr>
                 {% endfor %}
