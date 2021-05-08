@@ -11,11 +11,33 @@
         <!-- ChartJS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
         
-        <title>App</title>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Allura&family=Bad+Script&display=swap" rel="stylesheet">
+
+
+        <title>My Portfolio</title>
     </head>
 
 <body class='bg-dark text-white'>    
-<br/>
+
+  <div class='container my-3'>
+          <div class="row">
+              <div class="col-3">
+              
+              </div>
+              <div class="col-6">
+              <h1 class='text-uppercase' style="font-family: 'Bad Script', cursive;" >Minion Paper Trading</h1>
+              </div>
+              <div class="col-3">
+                Welcome, "User"!
+              </div>
+              
+          </div>
+
+    </div>
+
+
 {% if messages %}
     {% for message in messages %}
         <div class='alert alert-warning alert-dismissable' role='alert'>

@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
       
-<h1>Add stock</h1>
+<h3 class='my-4 py-2'>Add Stocks To Your Portfolio</h3>
 
-<form action='{% url 'addstock' %}' class='form-inline my-2 my-lg-0' method='POST'>
-    {% csrf_token %}                       
-    <input class='form-control mr-sm02' type='search' placeholder='Add to your Portfolio' name='stock'>
-    <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Add</button>
+
+<form action='{% url 'addstock' %}' class="form-inline" method='POST'>
+{% csrf_token %} 
+  
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Ticker Symbol" name='stock'>
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Quantity" name='quantity'> 
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Price" name='price'>
+  <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Buy Stock</button>
 </form>
 <br/>
 
-<h6 class='text-left'>Portfolio</h6>
+<h5 class='text-left'>Portfolio</h5>
                 
                 <table class="table table-bordered table-dark">
                   <thead>
@@ -35,14 +39,6 @@
                   </tbody>
                 </table>
                 <br></br>
-                <input placeholder='Quantity' class="rounded">
-                <select name="shares" id="shares" class="rounded">
-                <option value="Select">Select</option>
-                  <option value="Buy">Buy</option>
-                  <option value="Sell">Sell</option>
-                 
-                </select>
-
 
 
 
