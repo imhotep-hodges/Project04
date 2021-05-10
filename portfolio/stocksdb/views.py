@@ -3,11 +3,26 @@ from django.shortcuts import redirect
 from .models import Portfolio
 from .forms import StockForm
 from django.contrib import messages
+from django.views.generic import TemplateView
+
+
+class CompanyChartView(TemplateView):
+   template_name='home.html'
+
+   def get_context_data(self,**kwargs):
+      context=super().get_context_data(**kwargs)
+      context["qs"] = Portfolio.objects.all()
+
+      return context
+   
+def chart(request):
+   return render(request, 'chart.html', {})
+
 
 def home(request):
    import requests
    import json  
-
+  
    if request.method == 'POST':
       
       tickerSy = request.POST['ticker']
@@ -41,3 +56,4 @@ def delete(request, stock_id):
       item.delete()
       messages.success(request, ("Stock has been sold!"))
       return redirect(addstock)
+
