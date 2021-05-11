@@ -6,14 +6,25 @@ from django.contrib import messages
 from django.views.generic import TemplateView
 
 
-class CompanyChartView(TemplateView):
-   template_name='home.html'
+def bar_chart(request):
+   labels = []
+   data = []
 
-   def get_context_data(self,**kwargs):
-      context=super().get_context_data(**kwargs)
-      context["qs"] = Portfolio.objects.all()
+   queryset = Portfolio.objects.all()
+   for item in queryset:
+        labels.append(item.stock)
+        data.append(item.price)
 
-      return context
+   return render(request, 'home.html', {'labels': labels, 'data': data})
+
+#class CompanyChartView(TemplateView):
+ #  template_name='home.html'
+
+  # def get_context_data(self,**kwargs):
+   #   context=super().get_context_data(**kwargs)
+    #  context["qs"] = Portfolio.objects.all()
+
+     # return context
    
 def chart(request):
    return render(request, 'chart.html', {})

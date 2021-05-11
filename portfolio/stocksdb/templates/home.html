@@ -13,10 +13,10 @@ Title
             var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-            labels: [{% for item in qs %}'{{item.quantity}}',{% endfor %}],
+            labels: [{{ labels }}],
             datasets: [{
             label: 'Portfolio Value',
-            data: [{% for item in qs %} '{{item.price}}',{% endfor %}],
+            data: [{{ data }}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -46,7 +46,7 @@ Title
             });
 
             });
-            </script>
+</script>
 
 {% endblock scripts %}
 
