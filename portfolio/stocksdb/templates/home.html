@@ -1,22 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Title
-{% endblock title %}
 
 {% block scripts %}
 
 <script>
-            $(document).ready(function(){
+         
+  $(document).ready(function(){
 
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-            labels: [{{ labels }}],
+            labels: ['AAPL', 'AMC', 'F', 'SNAP'],
             datasets: [{
-            label: 'Portfolio Value',
-            data: [{{ data }}],
+            label: 'Your Portfolio Value',
+            data: [260, 95, 201, 270],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

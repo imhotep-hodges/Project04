@@ -6,11 +6,18 @@
 
 <form action='{% url 'addstock' %}' class="form-inline" method='POST'>
 {% csrf_token %} 
-  
-  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Ticker Symbol" name='stock'>
-  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Quantity" name='quantity'> 
-  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Price" name='price'>
-  <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Buy Stock</button>
+<div class="row">
+
+  <div class='col-md-3'>
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Ticker Symbol" name='stock'></div>
+  <div class='col-md-3'>
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Quantity" name='quantity'> </div>
+  <div class='col-md-3'>
+  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Price" name='price'></div>
+  <div class='col-md-3'>
+  <button class='btn btn-outline-success my-3 my-sm-0' type='submit'>Buy Stock</button></div>
+
+</div>
 </form>
 <br/>
 

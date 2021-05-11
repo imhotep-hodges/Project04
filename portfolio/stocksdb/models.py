@@ -7,6 +7,6 @@ class Portfolio(models.Model):
     
     
     def __str__(self):
-        return "{}".format(self.stock) 
+        return self.stock
     
 
